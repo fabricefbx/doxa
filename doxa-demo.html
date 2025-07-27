@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOXA Investments SARL - Démonstration</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 60px 0; text-align: center; }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; }
+        .hero p { font-size: 1.2rem; margin-bottom: 30px; }
+        .btn { display: inline-block; background: #ff6b6b; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; margin: 10px; transition: background 0.3s; }
+        .btn:hover { background: #ee5a5a; }
+        .section { padding: 60px 0; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .feature { background: #f8f9fa; padding: 30px; border-radius: 10px; text-align: center; }
+        .feature h3 { color: #667eea; margin-bottom: 15px; }
+        .status { background: #fff3cd; border: 1px solid #ffeaa7; padding: 20px; border-radius: 10px; margin: 30px 0; }
+        .status h3 { color: #856404; margin-bottom: 10px; }
+        footer { background: #2c3e50; color: white; text-align: center; padding: 40px 0; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="hero">
+                <h1>DOXA Investments SARL</h1>
+                <p>Plateforme d'investissement et de gestion de projets</p>
+                <a href="#features" class="btn">Découvrir nos services</a>
+                <a href="#status" class="btn">État du système</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="section" id="features">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">Nos Services</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>📊 Gestion de Projets</h3>
+                    <p>Suivi et gestion complète de vos projets d'investissement avec tableaux de bord en temps réel.</p>
+                </div>
+                <div class="feature">
+                    <h3>💼 Portefeuille Produits</h3>
+                    <p>Catalogue complet de nos produits d'investissement avec gestion des stocks et commandes.</p>
+                </div>
+                <div class="feature">
+                    <h3>🎯 Support Client</h3>
+                    <p>Service client dédié avec système de tickets et support multi-secteurs.</p>
+                </div>
+                <div class="feature">
+                    <h3>📈 Analyses & Rapports</h3>
+                    <p>Analyses détaillées et rapports personnalisés pour optimiser vos investissements.</p>
+                </div>
+                <div class="feature">
+                    <h3>🔐 Sécurité Renforcée</h3>
+                    <p>Authentification sécurisée et gestion des accès par rôles.</p>
+                </div>
+                <div class="feature">
+                    <h3>📧 Newsletter</h3>
+                    <p>Restez informé des dernières opportunités et actualités du marché.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="status" style="background: #f8f9fa;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 40px;">État du Système</h2>
+            <div class="status">
+                <h3>🚧 Plateforme en cours de finalisation</h3>
+                <p><strong>Frontend :</strong> ✅ Déployé et fonctionnel</p>
+                <p><strong>Base de données :</strong> ✅ Configurée (dithf2568749_1qrgs)</p>
+                <p><strong>API Backend :</strong> ⏳ En cours d'activation PHP sur LWS</p>
+                <p><strong>Estimation :</strong> Mise en service complète sous 24-48h</p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <h3>🔗 Liens de Test</h3>
+                <p>
+                    <a href="/backend/api.php" class="btn" style="background: #6c757d;">Test API (en cours)</a>
+                    <a href="mailto:support@dith-fastbusiness.com" class="btn">Contact Support</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 DOXA Investments SARL. Tous droits réservés.</p>
+            <p>Plateforme hébergée par LWS - Version 1.0</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll pour les liens internes
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Test périodique de l'API
+        setInterval(() => {
+            fetch('/backend/api.php')
+                .then(response => {
+                    if (response.ok) {
+                        document.querySelector('.status').innerHTML = `
+                            <h3 style="color: #28a745;">🎉 Système Opérationnel</h3>
+                            <p><strong>Frontend :</strong> ✅ Fonctionnel</p>
+                            <p><strong>Base de données :</strong> ✅ Connectée</p>
+                            <p><strong>API Backend :</strong> ✅ Opérationnelle</p>
+                            <p><strong>Statut :</strong> Plateforme entièrement fonctionnelle !</p>
+                        `;
+                    }
+                })
+                .catch(() => {
+                    console.log('API pas encore disponible');
+                });
+        }, 30000); // Test toutes les 30 secondes
+    </script>
+</body>
+</html>

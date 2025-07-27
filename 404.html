@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page non trouvée - DOXA Investments</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        .container {
+            text-align: center;
+            max-width: 600px;
+            padding: 40px 20px;
+        }
+        .error-icon {
+            font-size: 8rem;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 15px 30px;
+            border: 2px solid white;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+        }
+        .btn:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+        .btn-primary {
+            background: rgba(255,255,255,0.2);
+        }
+        .suggestions {
+            margin-top: 50px;
+            text-align: left;
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+        }
+        .suggestions h3 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .suggestions ul {
+            list-style: none;
+        }
+        .suggestions li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .suggestions li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #ffd700;
+        }
+        .suggestions a {
+            color: white;
+            text-decoration: none;
+        }
+        .suggestions a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="error-icon">🔍</div>
+        <h1>404</h1>
+        <h2>Page non trouvée</h2>
+        <p>Désolé, la page que vous cherchez n'existe pas ou a été déplacée. Notre plateforme DOXA Investments est en cours de finalisation.</p>
+        
+        <div class="buttons">
+            <a href="/" class="btn btn-primary">
+                <i class="fas fa-home"></i> Accueil
+            </a>
+            <a href="/frontend/" class="btn">
+                <i class="fas fa-rocket"></i> Application
+            </a>
+            <a href="javascript:history.back()" class="btn">
+                <i class="fas fa-arrow-left"></i> Retour
+            </a>
+        </div>
+        
+        <div class="suggestions">
+            <h3><i class="fas fa-lightbulb"></i> Pages disponibles</h3>
+            <ul>
+                <li><a href="/">🏠 Page d'accueil DOXA Investments</a></li>
+                <li><a href="/frontend/">🚀 Application React (Interface utilisateur)</a></li>
+                <li><a href="/backend/api.php">🔧 API Backend (En activation)</a></li>
+                <li><a href="/backend/test-connexion-doxa.php">🔌 Test de connexion</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Auto-redirection si on trouve une page similaire
+        const currentPath = window.location.pathname;
+        const suggestions = {
+            '/app': '/frontend/',
+            '/application': '/frontend/',
+            '/dashboard': '/frontend/',
+            '/admin': '/frontend/',
+            '/api': '/backend/api.php',
+            '/backend': '/backend/api.php',
+            '/test': '/backend/test-connexion-doxa.php'
+        };
+        
+        Object.keys(suggestions).forEach(path => {
+            if (currentPath.includes(path)) {
+                setTimeout(() => {
+                    if (confirm(`Redirection vers ${suggestions[path]} ?`)) {
+                        window.location.href = suggestions[path];
+                    }
+                }, 2000);
+            }
+        });
+    </script>
+</body>
+</html>
